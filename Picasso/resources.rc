@@ -1,0 +1,15 @@
+#include "resource.h"
+IDR_MYMENU MENU
+BEGIN
+
+POPUP "&Options"
+BEGIN
+MENUITEM "&Drawing", ID_DRAW
+END
+POPUP "&LineType"
+BEGIN
+MENUITEM "&Simple", ID_Simple
+MENUITEM "&DDA", ID_DDA
+MENUITEM "&MidPoint", ID_MidPoint
+END
+END
