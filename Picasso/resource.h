@@ -1,11 +1,12 @@
 #define IDR_MYMENU 101
 #define IDI_MYICON 201
-#define ID_LINE 1014
+#define ID_LINE 1000
 #define ID_FILE_EXIT 9001
 #define ID_CIRCLE 9002
+#define ID_CIRCLESIMPLE 2001
+#define ID_CIRCLEPolar 2002
+#define ID_CIRCLEMidPoint 2003
 #define ID_CLIPPING 9003
-#define ID_DRAW 9004
-#define ID_Simple 0
-#define ID_DDA 1
-#define ID_MidPoint 2
-
+#define ID_Simple 1001
+#define ID_DDA 1002
+#define ID_MidPoint 1003

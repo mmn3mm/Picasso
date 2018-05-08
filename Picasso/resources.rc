@@ -4,12 +4,19 @@ BEGIN
 
 POPUP "&Options"
 BEGIN
-MENUITEM "&Drawing", ID_DRAW
+MENUITEM "&Line", ID_LINE
+MENUITEM "&Circle",ID_CIRCLE
 END
 POPUP "&LineType"
 BEGIN
 MENUITEM "&Simple", ID_Simple
 MENUITEM "&DDA", ID_DDA
 MENUITEM "&MidPoint", ID_MidPoint
+END
+POPUP "&CircleType"
+BEGIN
+MENUITEM "&Quadratic", ID_CIRCLESIMPLE
+MENUITEM "&Polar", ID_CIRCLEPolar
+MENUITEM "&MidPoint", ID_CIRCLEMidPoint
 END
 END

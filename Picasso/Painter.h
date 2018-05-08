@@ -1,9 +1,7 @@
 #pragma once
 #include "Shape.h"
 #include "LineAlgorithm.h"
-#include "SimpleAlgorithm.h"
-#include "SimpleAlgorithmDDA.h"
-#include "MidpointLineALgorithm.h"
+#include "CircleAlgorithm.h"
 class Painter
 {
 public:
@@ -14,10 +12,12 @@ public:
 		Simple, DDA, MidPoint
 	};
 	void drawLine(HDC,Line);
-	void setLineAlgorithm(int);
+	void drawCircle(HDC, Circle);
 	LineAlgorithm* getLineAlgorithm();
+	CircleAlgorithm* getCircleAlgorithm();
 private:
 	LineAlgorithm* lineAlgorithm;
+	CircleAlgorithm* circleAlgorithm;
 
 };
 

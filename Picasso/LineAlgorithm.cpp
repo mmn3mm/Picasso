@@ -18,8 +18,8 @@ void LineAlgorithm::draw(HDC hdc, Line line)
 		drawMidPoint(hdc, line);
 		break;
 	case DDA:
-			drawDDA(hdc, line);
-			break;	
+		drawDDA(hdc, line);
+		break;	
 	}
 }
 void LineAlgorithm::drawSimple(HDC hdc, Line line)

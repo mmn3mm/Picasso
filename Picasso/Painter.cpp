@@ -14,19 +14,17 @@ LineAlgorithm* Painter::getLineAlgorithm()
 {
 	return this->lineAlgorithm;
 }
+CircleAlgorithm* Painter::getCircleAlgorithm()
+{
+	return this->circleAlgorithm;
+}
 void Painter::drawLine(HDC hdc,Line line)
 {
 	
 		lineAlgorithm->draw(hdc,line);
 }
-void Painter::setLineAlgorithm(int type)
-{
-	delete lineAlgorithm;
-	if (type == Simple)
-		lineAlgorithm = new SimpleAlgorithm();
-	else if (type == DDA)
-		lineAlgorithm = new SimpleAlgorithmDDA();
-	else if (type == MidPoint)
-		lineAlgorithm = new MidpointLineALgorithm();
 
+void Painter::drawCircle(HDC hdc, Circle circle)
+{
+	circleAlgorithm->draw(hdc, circle);
 }
