@@ -6,8 +6,16 @@
 class LineAlgorithm
 {
 public:
+	enum LineAlgorithmType
+	{
+		Simple, DDA, MidPoint
+	};
 	LineAlgorithm();
 	~LineAlgorithm();
-	virtual void draw(HDC,Line) = 0;
+	void draw(HDC, Line);
+	int  type;
+	void drawSimple(HDC, Line);
+	void drawMidPoint(HDC, Line);
+	void drawDDA(HDC, Line);
 };
 

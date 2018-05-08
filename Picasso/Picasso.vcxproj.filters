@@ -24,15 +24,6 @@
     <ClInclude Include="LineAlgorithm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SimpleAlgorithm.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SimpleAlgorithmDDA.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MidpointLineALgorithm.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Painter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -45,15 +36,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="LineAlgorithm.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="SimpleAlgorithm.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="SimpleAlgorithmDDA.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MidpointLineALgorithm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Painter.cpp">

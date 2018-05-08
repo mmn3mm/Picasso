@@ -80,21 +80,15 @@
   <ItemGroup>
     <ClInclude Include="Line.h" />
     <ClInclude Include="LineAlgorithm.h" />
-    <ClInclude Include="MidpointLineALgorithm.h" />
     <ClInclude Include="Painter.h" />
     <ClInclude Include="Shape.h" />
-    <ClInclude Include="SimpleAlgorithm.h" />
-    <ClInclude Include="SimpleAlgorithmDDA.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Line.cpp" />
     <ClCompile Include="LineAlgorithm.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="MidpointLineALgorithm.cpp" />
     <ClCompile Include="Painter.cpp" />
     <ClCompile Include="Shape.cpp" />
-    <ClCompile Include="SimpleAlgorithm.cpp" />
-    <ClCompile Include="SimpleAlgorithmDDA.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="resources.rc" />
