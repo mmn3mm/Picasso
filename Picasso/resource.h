@@ -2,7 +2,7 @@
 #define IDI_MYICON 201
 #define ID_LINE 1000
 #define ID_FILE_EXIT 9001
-#define ID_CIRCLE 9002
+#define ID_CIRCLE 2000
 #define ID_CIRCLESIMPLE 2001
 #define ID_CIRCLEPolar 2002
 #define ID_CIRCLEMidPoint 2003
@@ -11,3 +11,6 @@
 #define ID_MidPoint 1003
 #define ID_Fill 3001
 #define ID_CLIP 3002
+#define ID_Curve 4000
+#define ID_Bezeir 4001
+#define ID_Hermite 4002

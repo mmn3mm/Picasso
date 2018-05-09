@@ -3,6 +3,7 @@
 #include <iostream>
 #include "FillAlgorithm.h"
 #include "Circle.h"
+#include "Curve.h"
 #include <vector>
 #include "resource.h"
 #include "ClippingAlgorithm.h"
@@ -16,7 +17,7 @@ int condition = -1;
 int type = 0;
 Painter painter;
 vector<Line> lines;
-
+vector<Point> points;
 LRESULT WINAPI WndProc(HWND hwnd, UINT MSG, WPARAM wp, LPARAM lp)
 {
 	FillAlgorithm fillAlgoirthm(hwnd);
@@ -89,7 +90,6 @@ LRESULT WINAPI WndProc(HWND hwnd, UINT MSG, WPARAM wp, LPARAM lp)
 						painter.drawLine(hdc, line);
 				}
 				painter.drawWindow(hdc, left, right, top, bottom, RGB(0, 0, 0));
-
 				draw = false;
 			}
 			else
@@ -98,6 +98,21 @@ LRESULT WINAPI WndProc(HWND hwnd, UINT MSG, WPARAM wp, LPARAM lp)
 			}
 			first = lp;
 
+		}
+		else if (condition == 4)
+		{
+			points.push_back({ LOWORD(lp), HIWORD(lp) });
+
+			if (points.size()==4)
+			{
+				Curve curve;
+				curve.color = RGB(10, 255, 1);
+				curve.type = type;
+				curve.points = points;
+				painter.drawCurve(hdc, curve);
+				points.clear();
+			}
+			
 		}
 		first = lp;
 		ReleaseDC(hwnd, hdc);
@@ -150,6 +165,14 @@ LRESULT WINAPI WndProc(HWND hwnd, UINT MSG, WPARAM wp, LPARAM lp)
 				break;
 			case ID_CLIP:
 				condition = 3;
+				break;
+			case ID_Curve:
+				condition = 4;
+			case ID_Bezeir:
+				type = 0;
+				break;
+			case ID_Hermite:
+				type = 1;
 				break;
 			}
 	} 

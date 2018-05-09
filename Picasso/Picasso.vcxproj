@@ -81,6 +81,8 @@
     <ClInclude Include="Circle.h" />
     <ClInclude Include="CircleAlgorithm.h" />
     <ClInclude Include="ClippingAlgorithm.h" />
+    <ClInclude Include="Curve.h" />
+    <ClInclude Include="CurveAlgorithm.h" />
     <ClInclude Include="FillAlgorithm.h" />
     <ClInclude Include="Line.h" />
     <ClInclude Include="LineAlgorithm.h" />
@@ -92,6 +94,8 @@
     <ClCompile Include="Circle.cpp" />
     <ClCompile Include="CircleAlgorithm.cpp" />
     <ClCompile Include="ClippingAlgorithm.cpp" />
+    <ClCompile Include="Curve.cpp" />
+    <ClCompile Include="CurveAlgorithm.cpp" />
     <ClCompile Include="FillAlgorithm.cpp" />
     <ClCompile Include="Line.cpp" />
     <ClCompile Include="LineAlgorithm.cpp" />

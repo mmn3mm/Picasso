@@ -3,7 +3,9 @@
 
 Painter::Painter()
 {
-	lineAlgorithm = NULL;
+	curveAlgorithm = new CurveAlgorithm();
+	lineAlgorithm = new LineAlgorithm();
+	circleAlgorithm = new CircleAlgorithm();
 }
 
 Painter::~Painter()
@@ -18,10 +20,23 @@ CircleAlgorithm* Painter::getCircleAlgorithm()
 {
 	return this->circleAlgorithm;
 }
+CurveAlgorithm* Painter::getCurveAlgorithm()
+{
+	return this->curveAlgorithm;
+}
 void Painter::drawLine(HDC hdc,Line line)
 {
 	
-		lineAlgorithm->draw(hdc,line);
+	lineAlgorithm->draw(hdc,line);
+}
+
+void Painter::drawCurve(HDC hdc, Curve curve)
+{
+		curveAlgorithm->draw(hdc, curve);
+}
+void Painter::drawCircle(HDC hdc, Circle circle)
+{
+	circleAlgorithm->draw(hdc, circle);
 }
 void Painter::drawWindow(HDC hdc, int left, int right, int top, int bottom,COLORREF color)
 {
@@ -51,7 +66,3 @@ void Painter::drawWindow(HDC hdc, int left, int right, int top, int bottom,COLOR
 	lineAlgorithm->draw(hdc, rightLine);
 }
 
-void Painter::drawCircle(HDC hdc, Circle circle)
-{
-	circleAlgorithm->draw(hdc, circle);
-}

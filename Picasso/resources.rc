@@ -6,6 +6,7 @@ POPUP "&Options"
 BEGIN
 MENUITEM "&Line", ID_LINE
 MENUITEM "&Circle",ID_CIRCLE
+MENUITEM "&Curve", ID_Curve
 END
 POPUP "&LineType"
 BEGIN
@@ -18,6 +19,11 @@ BEGIN
 MENUITEM "&Quadratic", ID_CIRCLESIMPLE
 MENUITEM "&Polar", ID_CIRCLEPolar
 MENUITEM "&MidPoint", ID_CIRCLEMidPoint
+END
+POPUP "&Curve"
+BEGIN
+MENUITEM "&Bezeir", ID_Bezeir
+MENUITEM "&Hermite", ID_Hermite
 END
 POPUP "&Other"
 BEGIN
