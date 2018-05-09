@@ -5,6 +5,7 @@
 #include "Circle.h"
 #include <vector>
 #include "resource.h"
+#include "ClippingAlgorithm.h"
 #include "Painter.h"
 
 
@@ -14,10 +15,11 @@ LPARAM first;
 int condition = -1;
 int type = 0;
 Painter painter;
+vector<Line> lines;
+
 LRESULT WINAPI WndProc(HWND hwnd, UINT MSG, WPARAM wp, LPARAM lp)
 {
 	FillAlgorithm fillAlgoirthm(hwnd);
-	int x, y, ans;
 	HDC hdc;
 	switch (MSG)
 	{
@@ -38,6 +40,7 @@ LRESULT WINAPI WndProc(HWND hwnd, UINT MSG, WPARAM wp, LPARAM lp)
 				line.end.y = HIWORD(lp);
 				line.type = type;
 				painter.drawLine(hdc,line);
+				lines.push_back(line);
 				draw = false;
 			}
 			else
@@ -67,6 +70,35 @@ LRESULT WINAPI WndProc(HWND hwnd, UINT MSG, WPARAM wp, LPARAM lp)
 			fillAlgoirthm.draw(hdc, { LOWORD(lp), HIWORD(lp) });
 
 		}
+		else if (condition == 3)
+		{
+			if (draw)
+			{
+				int left = LOWORD(first);
+				int right = LOWORD(lp);
+				int top = HIWORD(first);
+				int bottom = HIWORD(lp);
+				ClippingAlgorithm clippingAlgorithm(left, right, top, bottom);
+				for (int i = 0; i < lines.size(); i++)
+				{
+					Line oldLine = lines[i];
+					oldLine.color = RGB(255,255,255);
+					painter.drawLine(hdc,oldLine);		
+					Line line = clippingAlgorithm.clipp(lines[i]);
+					if (line.fine)
+						painter.drawLine(hdc, line);
+				}
+				painter.drawWindow(hdc, left, right, top, bottom, RGB(0, 0, 0));
+
+				draw = false;
+			}
+			else
+			{
+				draw = true;
+			}
+			first = lp;
+
+		}
 		first = lp;
 		ReleaseDC(hwnd, hdc);
 		break;
@@ -81,12 +113,12 @@ LRESULT WINAPI WndProc(HWND hwnd, UINT MSG, WPARAM wp, LPARAM lp)
 	case WM_COMMAND:
 
 	{
+			draw = false;
 			switch (LOWORD(wp))
 
 			{
 			case ID_LINE:
-				condition = 0;
-				draw = false; //Break is not written on purpose, in order to auto set the type.
+				condition = 0; //Break is not written on purpose, in order to auto set the type.
 			case ID_Simple:
 				if (condition == 0) //If mistakenly changed type
 					type = 0;
@@ -98,10 +130,9 @@ LRESULT WINAPI WndProc(HWND hwnd, UINT MSG, WPARAM wp, LPARAM lp)
 			case ID_MidPoint:
 				if (condition == 0)
 					type = 2;
-				break;
+					break;
 			case ID_CIRCLE:
-				condition = 1;
-				draw = false; //Break is not written on purpose, in order to auto set the type.
+				condition = 1; //Break is not written on purpose, in order to auto set the type.
 			case ID_CIRCLESIMPLE:
 				if (condition == 1)
 					type = 0;
@@ -117,10 +148,12 @@ LRESULT WINAPI WndProc(HWND hwnd, UINT MSG, WPARAM wp, LPARAM lp)
 			case ID_Fill:
 				condition = 2;
 				break;
+			case ID_CLIP:
+				condition = 3;
+				break;
 			}
-	} break;
-
-
+	} 
+		break;
 	default:
 		return DefWindowProc(hwnd, MSG, wp, lp);
 		break;

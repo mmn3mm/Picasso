@@ -13,6 +13,7 @@ public:
 	};
 	void drawLine(HDC,Line);
 	void drawCircle(HDC, Circle);
+	void drawWindow(HDC, int, int, int, int,COLORREF);
 	LineAlgorithm* getLineAlgorithm();
 	CircleAlgorithm* getCircleAlgorithm();
 private:

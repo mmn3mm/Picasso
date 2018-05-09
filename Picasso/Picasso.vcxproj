@@ -80,6 +80,7 @@
   <ItemGroup>
     <ClInclude Include="Circle.h" />
     <ClInclude Include="CircleAlgorithm.h" />
+    <ClInclude Include="ClippingAlgorithm.h" />
     <ClInclude Include="FillAlgorithm.h" />
     <ClInclude Include="Line.h" />
     <ClInclude Include="LineAlgorithm.h" />
@@ -90,6 +91,7 @@
   <ItemGroup>
     <ClCompile Include="Circle.cpp" />
     <ClCompile Include="CircleAlgorithm.cpp" />
+    <ClCompile Include="ClippingAlgorithm.cpp" />
     <ClCompile Include="FillAlgorithm.cpp" />
     <ClCompile Include="Line.cpp" />
     <ClCompile Include="LineAlgorithm.cpp" />
