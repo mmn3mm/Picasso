@@ -19,4 +19,9 @@ MENUITEM "&Quadratic", ID_CIRCLESIMPLE
 MENUITEM "&Polar", ID_CIRCLEPolar
 MENUITEM "&MidPoint", ID_CIRCLEMidPoint
 END
+POPUP "&Other"
+BEGIN
+MENUITEM "&Line Clipping", ID_CLIP
+MENUITEM "&Fill", ID_Fill
+END
 END

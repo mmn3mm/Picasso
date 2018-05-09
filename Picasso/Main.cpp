@@ -1,10 +1,12 @@
 
 #include <Windows.h> //responsible for all the functions of windows APIs
 #include <iostream>
+#include "FillAlgorithm.h"
 #include "Circle.h"
 #include <vector>
 #include "resource.h"
 #include "Painter.h"
+
 
 using namespace std;
 bool draw;
@@ -14,6 +16,7 @@ int type = 0;
 Painter painter;
 LRESULT WINAPI WndProc(HWND hwnd, UINT MSG, WPARAM wp, LPARAM lp)
 {
+	FillAlgorithm fillAlgoirthm(hwnd);
 	int x, y, ans;
 	HDC hdc;
 	switch (MSG)
@@ -59,7 +62,11 @@ LRESULT WINAPI WndProc(HWND hwnd, UINT MSG, WPARAM wp, LPARAM lp)
 			}
 			first = lp;
 		}
+		else if (condition == 2)
+		{
+			fillAlgoirthm.draw(hdc, { LOWORD(lp), HIWORD(lp) });
 
+		}
 		first = lp;
 		ReleaseDC(hwnd, hdc);
 		break;
@@ -106,6 +113,9 @@ LRESULT WINAPI WndProc(HWND hwnd, UINT MSG, WPARAM wp, LPARAM lp)
 			case ID_CIRCLEMidPoint:
 				if (condition == 1)
 					type = 2;
+				break;
+			case ID_Fill:
+				condition = 2;
 				break;
 			}
 	} break;

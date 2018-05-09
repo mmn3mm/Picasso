@@ -40,9 +40,10 @@ void CircleAlgorithm::drawCircleMidPoint(HDC hdc, Circle circle)
 	int R = circle.dist(circle.radius,circle.center);
 	int x = 0, y = R;
 	int d = 1 - R;
-	draw8Points(hdc, xs, ys, 0, 0, color);
-	while (x < y)
+	while (x <=y)
 	{
+		draw8Points(hdc, xe, ye, x, y, color);
+
 		if (d < 0){
 			d += 2 * x + 3;
 		}
@@ -52,7 +53,6 @@ void CircleAlgorithm::drawCircleMidPoint(HDC hdc, Circle circle)
 			y--;
 		}
 		x++;
-		draw8Points(hdc, xs, ys, x, y, color);
 	}
 }
 void CircleAlgorithm::drawCircleQuadratic(HDC hdc, Circle circle)
@@ -65,10 +65,10 @@ void CircleAlgorithm::drawCircleQuadratic(HDC hdc, Circle circle)
 	int R = circle.dist(circle.radius, circle.center);
 	int x = 0;
 	int y = R;
-	while (x < y)
+	while (x <= y)
 	{
 
-		draw8Points(hdc, xs, ys, x, y, color);
+		draw8Points(hdc, xe, ye, x, y, color);
 		x++;
 		y = round(sqrt((double)(R*R) - (x*x)));
 	}
@@ -84,12 +84,12 @@ void CircleAlgorithm::drawPolar(HDC hdc, Circle circle)
 	int R = circle.dist(circle.radius, circle.center); 
 	int x = R, y = 0;
 	double theta = 0, d = (1.0 / R);
-	while (x >y)
+	while (x >=y)
 	{
+		draw8Points(hdc, xe, ye, x, y, color);
 		theta += d;
 		x = round(R*cos(theta));
 		y = round(R*sin(theta));
-		draw8Points(hdc,xe,ye,x,y, color);
 	}
 }
 CircleAlgorithm::~CircleAlgorithm()

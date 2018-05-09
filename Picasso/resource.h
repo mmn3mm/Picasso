@@ -6,7 +6,8 @@
 #define ID_CIRCLESIMPLE 2001
 #define ID_CIRCLEPolar 2002
 #define ID_CIRCLEMidPoint 2003
-#define ID_CLIPPING 9003
 #define ID_Simple 1001
 #define ID_DDA 1002
 #define ID_MidPoint 1003
+#define ID_Fill 3001
+#define ID_CLIP 3002

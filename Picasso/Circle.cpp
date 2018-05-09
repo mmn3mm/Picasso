@@ -5,7 +5,7 @@ Circle::Circle()
 {
 }
 
-Circle::Circle(Point center,Point radius)
+Circle::Circle(Point radius,Point center)
 {
 	this->center = center;
 	this->radius = radius;
