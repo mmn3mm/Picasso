@@ -7,6 +7,8 @@ BEGIN
 MENUITEM "&Line", ID_LINE
 MENUITEM "&Circle",ID_CIRCLE
 MENUITEM "&Curve", ID_Curve
+MENUITEM "&Save", ID_Save
+MENUITEM "&Load", ID_Load
 END
 POPUP "&LineType"
 BEGIN

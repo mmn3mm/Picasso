@@ -14,3 +14,5 @@
 #define ID_Curve 4000
 #define ID_Bezeir 4001
 #define ID_Hermite 4002
+#define ID_Save 5001
+#define ID_Load 5002

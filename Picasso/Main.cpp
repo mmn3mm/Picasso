@@ -20,7 +20,6 @@ vector<Line> lines;
 vector<Point> points;
 LRESULT WINAPI WndProc(HWND hwnd, UINT MSG, WPARAM wp, LPARAM lp)
 {
-	FillAlgorithm fillAlgoirthm(hwnd);
 	HDC hdc;
 	switch (MSG)
 	{
@@ -68,7 +67,7 @@ LRESULT WINAPI WndProc(HWND hwnd, UINT MSG, WPARAM wp, LPARAM lp)
 		}
 		else if (condition == 2)
 		{
-			fillAlgoirthm.draw(hdc, { LOWORD(lp), HIWORD(lp) });
+			painter.fill(hdc, { LOWORD(lp), HIWORD(lp) });
 
 		}
 		else if (condition == 3)
@@ -174,6 +173,14 @@ LRESULT WINAPI WndProc(HWND hwnd, UINT MSG, WPARAM wp, LPARAM lp)
 			case ID_Hermite:
 				type = 1;
 				break;
+			case ID_Save:
+				painter.save(GetDC(hwnd));
+				painter.clear(GetDC(hwnd));
+				break;
+			case ID_Load:
+				painter.clear(GetDC(hwnd));
+				painter.load(GetDC(hwnd));
+				break;
 			}
 	} 
 		break;
@@ -196,6 +203,7 @@ void initialize(HINSTANCE hi)
 	myClass.lpfnWndProc = WndProc;
 	RegisterClass(&myClass);
 	HWND hwnd = CreateWindow(L"MyClass", L"mn3m", WS_OVERLAPPEDWINDOW, 0, 0, 800, 600, NULL, NULL, hi, NULL);
+	painter.getFillAlgorithm()->hwnd = hwnd;
 	ShowWindow(hwnd, SW_SHOW);
 }
 int APIENTRY WinMain(HINSTANCE hi, HINSTANCE, LPSTR cmd, int n)
